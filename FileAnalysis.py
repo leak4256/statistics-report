@@ -1,50 +1,57 @@
 import re
 
-syntax = ["am", "are", "don't", "that", "the", "a", "do", "does", "did", "to", "from", "as", "and"]
+noMeaning = ["am", "are", "don't", "that", "the", "a", "do", "does", "did", "to", "from", "as", "and"]
 
 
-class FileAnalysis(object):
+class Statistics(object):
     # static variable class,set that stores the words without meaning
-    syntax_word_set = set(syntax)
+    noMeaning_set = set(noMeaning)
 
     def __init__(self, filename):
-        self.__file_name = filename
-        self.__file_obj = None
         self.__content = None  # the content file
         self.__dic = None  # dictionary, stores pair of: word, its number of instance in the file
-        self.__openFile__()
-        self.__words = re.split(r"\n+|\s+", self.__content)  # list of the all file's words
-        self.__lines = self.__content.splitlines()  # list of the all file's lines
+        self.__openFile__(filename)
+        self.__words = None  # list of the all file's words
+        self.__lines = None  # list of the all file's lines
         self.__sentences = None  # list of the all file's sentences
 
-    def __openFile__(self):
+    def __openFile__(self, filename):
         """open the file and position the file's content in self.__content variable"""
         try:
-            with open(self.__file_name, 'r', encoding="ISO-8859-1") as fd:
-                self.__file_obj = fd
-                # a generator that return the file's text char by char. prevents memory exception.
-                gen = (ch for line in fd for ch in line)
-                self.__content = ''.join(gen)
+            with open(filename, 'r', encoding="ISO-8859-1") as fd:
+                self.__content = ''.join([line for line in fd])
         except:
             print("Error with open file")
             exit(1)
 
+    def __getWords__(self):
+        """inner function, returns list of the words in the file"""
+        if self.__words is None:
+            re.split(r"\W+", self.__content)
+        return self.__words
+
+    def __getLines__(self):
+        """inner function, returns list of the lines in the file """
+        if self.__lines is None:
+            self.__lines = self.__content.splitlines()
+        return self.__lines
+
     def countLines(self):
         """returns the number of the lines in the file """
-        return len(self.__lines)
+        return len(self.__getLines__())
 
     def countWords(self):
         """returns the number of the words in the file """
-        return len(self.__words)
+        return len(self.__getWords__())
 
     def countUniqueWords(self):
         """returns list of the unique words in the file """
-        return len(set(self.__words))
+        return len(set((w.lower() for w in self.__getWords__())))
 
     def __getSentences__(self):
         """inner function, return list of the sentences in the file """
         if not self.__sentences:
-            self.__sentences = re.split('!|\\.|\\?|;', self.__content)
+            self.__sentences = re.findall(r"[A-Z].*?[\.!?]", self.__content, re.DOTALL)
         return self.__sentences
 
     def longestSentence(self):
@@ -58,8 +65,13 @@ class FileAnalysis(object):
     def __getDic__(self):
         """inner function, return dictionary of the file's words and their number of occurrences"""
         if self.__dic is None:
+            # create dictionary
             self.__dic = dict()
-            for word in self.__words:
+            # Go through all the words in the file
+            # converts each word to its lowercase
+            # increases the value of the word
+            for word in self.__getWords__():
+                word = word.lower()
                 self.__dic[word] = self.__dic.get(word, 0) + 1
         return self.__dic
 
@@ -69,7 +81,7 @@ class FileAnalysis(object):
 
     def popularNoSyntaxWord(self):
         """returns the popular meaning word in the file"""
-        return max(filter(lambda item: item[0] not in FileAnalysis.syntax_word_set, self.__getDic__().items()),
+        return max(filter(lambda item: item[0] not in Statistics.noMeaning_set, self.__getDic__().items()),
                    key=lambda item: item[1], default=('', 0))[0]
 
     def longestNoKSequence(self):
@@ -79,10 +91,10 @@ class FileAnalysis(object):
 
     def max_number(self):
         """returns the max number that occurs in the file"""
-        return max(re.findall(r"\d+", self.__content), default=None)
+        return max((int(x) for x in re.findall(r"\d+", self.__content)), default=None)
 
     def ToString(self):
-        """returns a string with the results of all file analysis functions offered by the FileAnalysis class. """
+        """returns a string with the results of all file analysis functions offered by the Statistics class. """
         string = f"Number of lines: {self.countLines()} \n" \
                  f"Number of Words: {self.countWords()}\n" \
                  f"Unique Words: {self.countUniqueWords()}\n" \
@@ -90,13 +102,15 @@ class FileAnalysis(object):
                  f"Average length of the Sentences: {self.averageSentence()}\n" \
                  f"Popular word: {self.popularWord()}\n" \
                  f"Popular NoSyntax Word: {self.popularNoSyntaxWord()}\n" \
-                 f"Longest No K Sequence: {self.longestNoKSequence()}\n"\
+                 f"Longest No K Sequence: {self.longestNoKSequence()}\n" \
                  f"Max number: {self.max_number()}"
         return string
 
-    def CreateReport(self, resfile="report.txt"):
+    def CreateReport(self, desfile):
         """create report with all the statistics of the file"""
-        with open(resfile, "w") as f:
+        if not desfile:
+            desfile = "report.txt"
+        with open(desfile, "w") as f:
             f.write(f"Statistics of {self.__file_name} file:")
             f.write(self.ToString())
 

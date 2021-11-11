@@ -92,4 +92,17 @@ def __gen__(self):
         while not block == "":
             for ch in block:
                 yield ch
-            block = self.__file_obj.read(1024)max_number
+            # def __getSentences__(self):
+            #     """inner function, return list of the sentences in the file """
+            #  #   if not self.__sentences:
+            #      #   self.__sentences = [re.findall(r"[A-Z].*?[\.!?]",, re.DOTALL)for line in self.__file_obj ]
+            #     return self.__sentences
+            # def getWords(self):
+            #     if self.__words is None:
+            #         self.__words = [word for line in self.__file_obj for word in line.split()]
+
+            # def countUniqueWords(self):
+            #     return len(set((w.lower() for w in self.getWords())))
+            block =     # def countLines(self):
+    #     """returns the number of the lines in the file """
+    #     return len(self.__file_obj.readLines())self.__file_obj.read(1024)max_number

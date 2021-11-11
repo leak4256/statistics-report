@@ -1,13 +1,15 @@
 
-from FileAnalysis import FileAnalysis
+from FileAnalysis import Statistics
 
 if __name__ == '__main__':
     source_file = input("Enter file name\n")
-    fileAnalysis = FileAnalysis(source_file)
-    dest_file = input("Enter file name for report\n")
-    if dest_file:
-        fileAnalysis.CreateReport(dest_file)
-    else:
-        print(fileAnalysis.ToString())
+    dest_file = input("Enter file name for report(optional)\n")
+    fileAnalysis = Statistics(source_file)
+    fileAnalysis.CreateReport(dest_file)
+    # print("count word",fileAnalysis.countLines())
+    # print("count word", fileAnalysis.countWords())
+    # print("count word", fileAnalysis.countUniqueWords())
+
+
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

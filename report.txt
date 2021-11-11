@@ -1,8 +1,8 @@
 Statistics of dickens.txt file:Number of lines: 640082 
-Number of Words: 5590555
-Unique Words: 195028
-Max length of the Sentences: 1498
-Average length of the Sentences: 86.1848904109589
+Number of Words: 5712152
+Unique Words: 45298
+Max length of the Sentences: 1989
+Average length of the Sentences: 103.11596720741865
 Popular word: the
 Popular NoSyntax Word: of
 Longest No K Sequence: ed with confidence for a
@@ -60,4 +60,4 @@ that both the contending parties would find a colorable excuse for
 absolving themselves from engagements which pressed unpleasantly
 upon their finances.  In this embarrassment he formed an intimacy
 with a French officer of high ran
-Max number: 998
+Max number: 8000
