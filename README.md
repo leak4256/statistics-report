@@ -30,6 +30,7 @@ src file: dickens.txt
 **output:**
 
 Statistics Report
+
 **Number of lines:** 640082
 
 **Number of Words:** 5712152
