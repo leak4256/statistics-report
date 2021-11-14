@@ -7,7 +7,7 @@ This project analysis english text file and create report with the analysis resu
 * [input-output-example](#input-output-example)
 
 ## General info
-This program performs all kinds of analyzes on a English text file and create report with the analysis result.
+This program performs various analyzes on a English text file and create report with the analysis result.
 
 ## Technologies
 Project is created with:
