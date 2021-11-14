@@ -149,5 +149,5 @@ dest file : report.txt
 **output:**
 The report created successfully in :report.txt
 
-and file report.txt created.
+and the report.txt was created.
 
