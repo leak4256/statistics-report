@@ -4,7 +4,7 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
-* [Input](#input-output-example)
+* [input-output-example](#input-output-example)
 
 ## General info
 This project analysis english text file and create report with the analysis result.
@@ -12,7 +12,7 @@ This project analysis english text file and create report with the analysis resu
 ## Technologies
 Project is created with:
 * Python version: 3.8
-* flax library for frontend
+* Flask library for frontend
 ## Setup
 To run this project you only have to :
 run app.py pyhon file.
