@@ -1,6 +1,9 @@
 import re
+from colors import colors
+noMeaning = ["am", "are", "don't", "that", "the", "a", "do", "does", "did", "to", "from", "as", "and", "of"]
 
-noMeaning = ["am", "are", "don't", "that", "the", "a", "do", "does", "did", "to", "from", "as", "and"]
+start = '::'
+end = '--'
 
 
 class Statistics(object):
@@ -20,14 +23,13 @@ class Statistics(object):
         try:
             with open(filename, 'r', encoding="ISO-8859-1") as fd:
                 self.__content = ''.join([line for line in fd])
-        except:
-            print("Error with open file")
-            exit(1)
+        except Exception as err:
+            raise Exception(f"Error with open file, {err}")
 
     def __getWords__(self):
         """inner function, returns list of the words in the file"""
         if self.__words is None:
-            re.split(r"\W+", self.__content)
+            self.__words = re.split(r"\W+", self.__content)
         return self.__words
 
     def __getLines__(self):
@@ -93,24 +95,44 @@ class Statistics(object):
         """returns the max number that occurs in the file"""
         return max((int(x) for x in re.findall(r"\d+", self.__content)), default=None)
 
+    def countColors(self):
+        """return the number of the instances of each color in the file """
+        colors_dic = dict()
+        for word in self.__getWords__():
+            if word in colors:
+                colors_dic[word.lower()] = colors_dic.get(word.lower(), 0) + 1
+        st = ""
+        for item in colors_dic.items():
+            st = st + f"{start}{item[0]}{end} occur {item[1]} times\n"
+        return st
+
     def ToString(self):
         """returns a string with the results of all file analysis functions offered by the Statistics class. """
-        string = f"Number of lines: {self.countLines()} \n" \
-                 f"Number of Words: {self.countWords()}\n" \
-                 f"Unique Words: {self.countUniqueWords()}\n" \
-                 f"Max length of the Sentences: {self.longestSentence()}\n" \
-                 f"Average length of the Sentences: {self.averageSentence()}\n" \
-                 f"Popular word: {self.popularWord()}\n" \
-                 f"Popular NoSyntax Word: {self.popularNoSyntaxWord()}\n" \
-                 f"Longest No K Sequence: {self.longestNoKSequence()}\n" \
-                 f"Max number: {self.max_number()}"
+        string = f"{start}Number of lines:{end} {self.countLines()}\n\n" \
+                 f"{start}Number of Words:{end} {self.countWords()}\n\n" \
+                 f"{start}Unique Words:{end} {self.countUniqueWords()}\n\n" \
+                 f"{start}Max length of the Sentences:{end} {self.longestSentence()}\n\n" \
+                 f"{start}Average length of the Sentences:{end} {self.averageSentence()}\n\n" \
+                 f"{start}Popular word:{end} {self.popularWord()}\n\n" \
+                 f"{start}Popular NoSyntax Word:{end} {self.popularNoSyntaxWord()}\n\n" \
+                 f"{start}Longest No K Sequence:{end} {self.longestNoKSequence()}\n\n" \
+                 f"{start}Max number:{end} {self.max_number()}\n\n"\
+                 f"{start}quantity of the instances of each color:{end}\n{self.countColors()}"
         return string
 
-    def CreateReport(self, desfile):
-        """create report with all the statistics of the file"""
-        if not desfile:
-            desfile = "report.txt"
-        with open(desfile, "w") as f:
-            f.write(f"Statistics of {self.__file_name} file:")
-            f.write(self.ToString())
 
+def CreateReportHtml(src_file, res_file):
+    """return string in html format with all the statistics of the file"""
+    statistics = Statistics(src_file)
+    return statistics.ToString().replace(start, '<b>').replace(end, '</b>').replace('\n', '<br>')
+
+
+def CreateReportFile(src_file, res_file):
+    """create report file with all the statistics of the file"""
+    statistics = Statistics(src_file)
+    if not res_file:
+        res_file = "report.txt"
+    with open(res_file, "w") as f:
+        f.write(f"Statistics of file {src_file}:\n\n")
+        st = statistics.ToString().replace(start, '').replace(end, '')
+        f.write(st)
