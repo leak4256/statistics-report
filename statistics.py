@@ -121,7 +121,7 @@ class Statistics(object):
         return string
 
 
-def CreateReportHtml(src_file, res_file):
+def CreateReportHtml(src_file):
     """return string in html format with all the statistics of the file"""
     statistics = Statistics(src_file)
     return statistics.ToString().replace(start, '<b>').replace(end, '</b>').replace('\n', '<br>')
@@ -133,6 +133,6 @@ def CreateReportFile(src_file, res_file):
     if not res_file:
         res_file = "report.txt"
     with open(res_file, "w") as f:
-        f.write(f"Statistics of file {src_file}:\n\n")
+        f.write(f"Statistics-report {src_file}:\n\n")
         st = statistics.ToString().replace(start, '').replace(end, '')
         f.write(st)

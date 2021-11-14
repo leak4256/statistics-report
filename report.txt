@@ -1,3 +1,5 @@
+Statistics on file dickens.txt:
+
 Number of lines: 640082
 
 Number of Words: 5712152
@@ -19,7 +21,7 @@ gorgeously endowed as the favorite of nature and fortune; of his
 motives for huddling up, in a clandestine manner, that connection
 which formed the glory of his life; and possibly (but then I
 hesitated) of the late unintelligible murders, which still lay
-under as profound a cloud as ever. Much of this WOULD be unveiled
+under as profound a cloud as ever.  Much of this WOULD be unveiled
 all might be: and there and then, with the corpse lying beside me
 of the gifted and mysterious writer, I seated myself, and read the
 following statement:
@@ -28,8 +30,8 @@ following statement:
 "MARCH 26, 1817.
 
 "My trial is finished; my conscience, my duty, my honor, are
-liberated; my 'warfare is accomplished.' Margaret, my innocent
-young wife, I have seen for the last time. Her, the crown that
+liberated; my 'warfare is accomplished.'  Margaret, my innocent
+young wife, I have seen for the last time.  Her, the crown that
 might have been of my earthly felicityher, the one temptation to
 put aside the bitter cup which awaited meher, sole seductress (O
 innocent seductress!) from the stern duties which my fate had
@@ -47,25 +49,25 @@ minister of a dreadful retribution.
 
 "That account of my history, and my prospects, which you received
 from the Russian diplomatist, among some errors of little
-importance, is essentially correct. My father was not so
+importance, is essentially correct.  My father was not so
 immediately connected with English blood as is there represented.
 However, it is true that he claimed descent from an English family
 of even higher distinction than that which is assigned in the
-Russian statement. He was proud of this English descent, and the
+Russian statement.  He was proud of this English descent, and the
 more so as the war with revolutionary France brought out more
 prominently than ever the moral and civil grandeur of England.
 This pride was generous, but it was imprudent in his situation.
 His immediate progenitors had been settled in Italyat Rome first,
 but latterly at Milan; and his whole property, large and scattered,
 came, by the progress of the revolution, to stand under French
-domination. Many spoliations he suffered; but still he was too
-rich to be seriously injured. But he foresaw, in the progress of
+domination.  Many spoliations he suffered; but still he was too
+rich to be seriously injured.  But he foresaw, in the progress of
 events, still greater perils menacing his most capital resources.
 Many of the states or princes in Italy were deeply in his debt;
 and, in the great convulsions which threatened his country, he saw
 that both the contending parties would find a colorable excuse for
 absolving themselves from engagements which pressed unpleasantly
-upon their finances. In this embarrassment he formed an intimacy
+upon their finances.  In this embarrassment he formed an intimacy
 with a French officer of high ran
 
 Max number: 8000
