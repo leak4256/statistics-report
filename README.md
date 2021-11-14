@@ -20,7 +20,7 @@ run app.py pyhon file.
 ## input-output-example
 There are tow options for input&output:
 
-option 1
+option 1:
 input:
 src file - dickens.txt
 
