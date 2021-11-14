@@ -24,7 +24,7 @@ There are tow options for input&output:
 
 **input:**
 
-src file - dickens.txt
+src file: dickens.txt
 
 
 **output:**
@@ -140,8 +140,8 @@ maroon occur 9 times
 
 **input:**
 
-src file - dickens.txt
-dest file - report.txt
+src file : dickens.txt
+dest file : report.txt
 
 
 **output:**
