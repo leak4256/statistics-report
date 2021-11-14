@@ -12,7 +12,7 @@ This program performs various analyzes on a English text file and create report 
 ## Technologies
 Project is created with:
 * Python version: 3.8
-* Flask library for frontend
+* Flask library 
 ## Setup
 To run this project you only have to :
 run app.py pyhon file.
