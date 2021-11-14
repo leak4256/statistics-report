@@ -20,29 +20,29 @@ run app.py pyhon file.
 ## input-output-example
 There are tow options for input&output:
 
-option 1:
+#### option 1:
 
-input:
+**input:**
 
 src file - dickens.txt
 
 
-output:
+**output:**
 
 Statistics Report
-Number of lines: 640082
+**Number of lines:** 640082
 
-Number of Words: 5712152
+**Number of Words:** 5712152
 
-Unique Words: 45298
+**Unique Words:** 45298
 
-Max length of the Sentences: 1989
+**Max length of the Sentences:** 1989
 
-Average length of the Sentences: 103.11596720741865
+**Average length of the Sentences:** 103.11596720741865
 
-Popular word: the
+**Popular word:** the
 
-Popular NoSyntax Word: i
+**Popular NoSyntax Word:** i
 
 Longest No K Sequence: ed with confidence for a
 solution of many mysteries;of the profound sadness which had,
@@ -100,9 +100,9 @@ absolving themselves from engagements which pressed unpleasantly
 upon their finances. In this embarrassment he formed an intimacy
 with a French officer of high ran
 
-Max number: 8000
+**Max number:** 8000
 
-quantity of the instances of each color:
+**Quantity of the instances of each color:**
 green occur 840 times
 white occur 1375 times
 red occur 1409 times
@@ -136,15 +136,15 @@ maroon occur 9 times
 
 
 
-option 2:
+#### option 2:
 
-input:
+**input:**
 
 src file - dickens.txt
 dest file - report.txt
 
 
-output:
+**output:**
 The report created successfully in :report.txt
 
 and file report.txt created.
