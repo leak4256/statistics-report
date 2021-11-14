@@ -1,5 +1,5 @@
 # statistics-report
-
+This project analysis english text file and create report with the analysis result.
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
@@ -7,7 +7,7 @@
 * [input-output-example](#input-output-example)
 
 ## General info
-This project analysis english text file and create report with the analysis result.
+This program performs all kinds of analyzes on a English text file and create report with the analysis result.
 
 ## Technologies
 Project is created with:
