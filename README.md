@@ -1,6 +1,25 @@
 # statistics-report
 
-Exsample for input and output
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Setup](#setup)
+* [Input](#input-output-example)
+
+## General info
+This project analysis english text file and create report with the analysis result.
+
+## Technologies
+Project is created with:
+* Python version: 3.8
+* flax library for frontend
+## Setup
+To run this project you only have to :
+run app.py pyhon file.
+
+## input-output-example
+There are tow options for input&output:
+
 option 1
 input:
 src file - dickens.txt
