@@ -20,11 +20,12 @@ run app.py pyhon file.
 ## input-output-example
 There are tow options for input&output:
 
-option 1
+option 1:
 
-input
+input:
 
 src file - dickens.txt
+
 
 output:
 
@@ -135,12 +136,13 @@ maroon occur 9 times
 
 
 
-option 2
+option 2:
 
-input
+input:
 
 src file - dickens.txt
 dest file - report.txt
+
 
 output:
 The report created successfully in :report.txt
