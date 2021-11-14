@@ -29,7 +29,7 @@ src file: dickens.txt
 
 **output:**
 
-Statistics Report
+Statistics Report:
 
 **Number of lines:** 640082
 
@@ -45,7 +45,7 @@ Statistics Report
 
 **Popular NoSyntax Word:** i
 
-Longest No K Sequence: ed with confidence for a
+**Longest No K Sequence** ed with confidence for a
 solution of many mysteries;of the profound sadness which had,
 from the first of my acquaintance with him, possessed a man so
 gorgeously endowed as the favorite of nature and fortune; of his
