@@ -1,9 +1,9 @@
 # statistics-report
 
-Exsample for input and output:
-option 1:
+Exsample for input and output
+option 1
 input:
-src file: dickens.txt
+src file - dickens.txt
 
 output:
 
@@ -114,10 +114,10 @@ maroon occur 9 times
 
 
 
-option 2:
-input:
-src file: dickens.txt
-dest file: report.txt
+option 2
+input
+src file - dickens.txt
+dest file - report.txt
 
 output:
 The report created successfully in :report.txt
