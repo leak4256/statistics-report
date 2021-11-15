@@ -1,9 +1,21 @@
-from flask import Flask, request, render_template
-from statistics import CreateReportHtml, CreateReportFile
+
+import os
+from flask import Flask, render_template, send_file, request, redirect, send_from_directory
+from werkzeug.utils import secure_filename
+from statistics import CreateReportFile
 import os
 
+
 '''allocated flask object'''
+
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = ''
+ALLOWED_EXTENSIONS = set(['txt'])
+
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 
 @app.route('/')
@@ -12,17 +24,37 @@ def load():
     return render_template('home.html')
 
 
-@app.route("/create-report/", methods=['POST', 'GET'])
-def create_report():
-    if request.form['srcname']:
+@app.route("/<path:filename>", methods=['GET', 'POST'])
+def  download(filename=None):
+    try:
+        path = os.path.join(app.root_path, filename)
+        return send_file(path, as_attachment=True)
+    except Exception as e:
+        return 'f<h1>{e}</h1>'
+
+
+# ToDo
+# @app.route("/<path:filename>", methods=['GET', 'POST'])
+# def view(filename=None):
+
+
+@app.route('/create-report/', methods=['GET', 'POST'])
+def read_file():
+    if request.method == 'POST':
+        file = request.files['file']
+        if file.filename == '':
+            return redirect(request.url)
+        if not allowed_file(file.filename):
+            return redirect(request.url)
+        filename = secure_filename(file.filename)
+        file.save(filename)
         try:
-            if request.form['destname']:
-                CreateReportFile(request.form['srcname'], request.form['destname'])
-                return f'<h1>The report created successfully in :{request.form["destname"]}</h1>'
-            st = CreateReportHtml(request.form['srcname'])
-            return f'<h1 align=center>Statistics Report</h1><p>{st}</p>'
+            CreateReportFile(filename)
+            # ToDO: delete the input file.
+            return render_template('download.html')
         except Exception as e:
             return f"<p>{e}</p>"
+
     return render_template("home.html")
 
 

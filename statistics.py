@@ -62,7 +62,9 @@ class Statistics(object):
 
     def averageSentence(self):
         """returns the average length of the sentences in the file"""
-        return len(self.__content) / len(self.__getSentences__())
+        ln = len(self.__getSentences__())
+        if ln > 0:
+            return len(self.__content) / len(self.__getSentences__())
 
     def __getDic__(self):
         """inner function, return dictionary of the file's words and their number of occurrences"""
@@ -93,6 +95,19 @@ class Statistics(object):
 
     def max_number(self):
         """returns the max number that occurs in the file"""
+        # temp = ''
+        # maxi = None
+        # for word in self.__getWords__():
+        #     if (word_to_num(word) or word == 'point') and not word.isdigit():
+        #         temp = temp + word
+        #     else:
+        #         if maxi is None or word_to_num(temp) > maxi:
+        #             maxi = word_to_num(temp)
+        #         temp = ''
+        #     if word.isdigit():
+        #         if int(word) > maxi:
+        #             maxi = int(word)
+        # return maxi
         return max((int(x) for x in re.findall(r"\d+", self.__content)), default=None)
 
     def countColors(self):
@@ -105,6 +120,7 @@ class Statistics(object):
         for item in colors_dic.items():
             st = st + f"{start}{item[0]}{end} occur {item[1]} times\n"
         return st
+
 
     def ToString(self):
         """returns a string with the results of all file analysis functions offered by the Statistics class. """
@@ -127,12 +143,15 @@ def CreateReportHtml(src_file):
     return statistics.ToString().replace(start, '<b>').replace(end, '</b>').replace('\n', '<br>')
 
 
-def CreateReportFile(src_file, res_file):
+def CreateReportFile(src_file, res_file="report.txt"):
     """create report file with all the statistics of the file"""
-    statistics = Statistics(src_file)
-    if not res_file:
-        res_file = "report.txt"
-    with open(res_file, "w") as f:
-        f.write(f"Statistics-report {src_file}:\n\n")
-        st = statistics.ToString().replace(start, '').replace(end, '')
-        f.write(st)
+    try:
+        statistics = Statistics(src_file)
+        with open(res_file, "w") as f:
+            f.write(f"Statistics-report {src_file}:\n\n")
+            st = statistics.ToString().replace(start, '').replace(end, '')
+            f.write(st)
+            return res_file
+    except Exception as e:
+        raise Exception("Problem with create report", e)
+
