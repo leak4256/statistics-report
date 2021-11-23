@@ -2,8 +2,8 @@ import re
 from colors import colors
 noMeaning = ["am", "are", "don't", "that", "the", "a", "do", "does", "did", "to", "from", "as", "and", "of"]
 
-start = '::'
-end = '--'
+start = '^'
+end = '$'
 
 
 class Statistics(object):
