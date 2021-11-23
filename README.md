@@ -18,18 +18,17 @@ To run this project you only have to :
 run app.py pyhon file.
 
 ## input-output-example
-There are tow options for input&output:
-
-#### option 1:
 
 **input:**
 
 src file: dickens.txt
-
+optional -result file: '' 
 
 **output:**
+a link for download the result file: report.txt
+(the file attached into the project)
 
-Statistics Report:
+its content:
 
 **Number of lines:** 640082
 
@@ -137,17 +136,4 @@ maroon occur 9 times
 
 
 
-#### option 2:
-
-**input:**
-
-src file : dickens.txt
-
-dest file : report.txt
-
-
-**output:**
-The report created successfully in :report.txt
-
-and the report.txt was created.
 
