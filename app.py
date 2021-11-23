@@ -9,7 +9,6 @@ import os
 '''allocated flask object'''
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = ''
 ALLOWED_EXTENSIONS = set(['txt'])
 
 
