@@ -107,8 +107,11 @@ with a French officer of high ran
 
 **Quantity of the instances of each color:**
 green occur 840 times
+
 white occur 1375 times
+
 red occur 1409 times
+
 yellow occur 274 times
 rose occur 1084 times
 brown occur 651 times
