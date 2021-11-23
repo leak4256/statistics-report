@@ -149,7 +149,7 @@ def CreateReportFile(src_file, res_file="report.txt"):
         statistics = Statistics(src_file)
         with open(res_file, "w") as f:
             f.write(f"Statistics-report {src_file}:\n\n")
-            st = statistics.ToString()
+            f.write(statistics.ToString())
             return res_file
     except Exception as e:
         raise Exception("Problem with create report", e)
