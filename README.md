@@ -113,31 +113,57 @@ white occur 1375 times
 red occur 1409 times
 
 yellow occur 274 times
+
 rose occur 1084 times
+
 brown occur 651 times
+
 blue occur 875 times
+
 silver occur 318 times
+
 gold occur 554 times
+
 chocolate occur 26 times
+
 crimson occur 67 times
+
 purple occur 72 times
+
 misty occur 46 times
+
 orange occur 165 times
+
 olive occur 18 times
+
 salmon occur 44 times
+
 coral occur 15 times
+
 navy occur 36 times
+
 ivory occur 28 times
+
 pink occur 106 times
+
 indigo occur 7 times
+
 gray occur 139 times
+
 plum occur 34 times
+
 lawn occur 36 times
+
 tan occur 25 times
+
 lavender occur 29 times
+
 lime occur 53 times
+
 azure occur 6 times
+
 violet occur 6 times
+
 maroon occur 9 times
 
 
