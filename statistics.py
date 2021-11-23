@@ -2,14 +2,10 @@ import re
 from colors import colors
 noMeaning = ["am", "are", "don't", "that", "the", "a", "do", "does", "did", "to", "from", "as", "and", "of"]
 
-start = '^'
-end = '$'
-
-
 class Statistics(object):
     # static variable class,set that stores the words without meaning
     noMeaning_set = set(noMeaning)
-
+    
     def __init__(self, filename):
         self.__content = None  # the content file
         self.__dic = None  # dictionary, stores pair of: word, its number of instance in the file
@@ -17,6 +13,8 @@ class Statistics(object):
         self.__words = None  # list of the all file's words
         self.__lines = None  # list of the all file's lines
         self.__sentences = None  # list of the all file's sentences
+        self.start = ''
+        self.end = ''
 
     def __openFile__(self, filename):
         """open the file and position the file's content in self.__content variable"""
@@ -124,23 +122,25 @@ class Statistics(object):
 
     def ToString(self):
         """returns a string with the results of all file analysis functions offered by the Statistics class. """
-        string = f"{start}Number of lines:{end} {self.countLines()}\n\n" \
-                 f"{start}Number of Words:{end} {self.countWords()}\n\n" \
-                 f"{start}Unique Words:{end} {self.countUniqueWords()}\n\n" \
-                 f"{start}Max length of the Sentences:{end} {self.longestSentence()}\n\n" \
-                 f"{start}Average length of the Sentences:{end} {self.averageSentence()}\n\n" \
-                 f"{start}Popular word:{end} {self.popularWord()}\n\n" \
-                 f"{start}Popular NoSyntax Word:{end} {self.popularNoSyntaxWord()}\n\n" \
-                 f"{start}Longest No K Sequence:{end} {self.longestNoKSequence()}\n\n" \
-                 f"{start}Max number:{end} {self.max_number()}\n\n"\
-                 f"{start}quantity of the instances of each color:{end}\n{self.countColors()}"
+        string = f"{self.start}Number of lines:{self.end} {self.countLines()}\n\n" \
+                 f"{self.start}Number of Words:{self.end} {self.countWords()}\n\n" \
+                 f"{self.start}Unique Words:{self.end} {self.countUniqueWords()}\n\n" \
+                 f"{self.start}Max length of the Sentences:{self.end} {self.longestSentence()}\n\n" \
+                 f"{self.start}Average length of the Sentences:{self.end} {self.averageSentence()}\n\n" \
+                 f"{self.start}Popular word:{self.end} {self.popularWord()}\n\n" \
+                 f"{self.start}Popular NoSyntax Word:{self.end} {self.popularNoSyntaxWord()}\n\n" \
+                 f"{self.start}Longest No K Sequence:{self.end} {self.longestNoKSequence()}\n\n" \
+                 f"{self.start}Max number:{self.end} {self.max_number()}\n\n"\
+                 f"{self.start}quantity of the instances of each color:{self.end}\n{self.countColors()}"
         return string
 
 
 def CreateReportHtml(src_file):
     """return string in html format with all the statistics of the file"""
     statistics = Statistics(src_file)
-    return statistics.ToString().replace(start, '<b>').replace(end, '</b>').replace('\n', '<br>')
+    statistics.start = '<b>'
+    statistics.end = '</b>'
+    return statistics.ToString().replace('\n', '<br>')
 
 
 def CreateReportFile(src_file, res_file="report.txt"):
@@ -149,8 +149,7 @@ def CreateReportFile(src_file, res_file="report.txt"):
         statistics = Statistics(src_file)
         with open(res_file, "w") as f:
             f.write(f"Statistics-report {src_file}:\n\n")
-            st = statistics.ToString().replace(start, '').replace(end, '')
-            f.write(st)
+            st = statistics.ToString()
             return res_file
     except Exception as e:
         raise Exception("Problem with create report", e)
